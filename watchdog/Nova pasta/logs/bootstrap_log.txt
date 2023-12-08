@@ -1,0 +1,12 @@
+
+
+[2023-01-23 13:19:22] Startup - updater built Mar 15 2022 17:15:38
+[2023-01-23 13:19:27] Shutdown
+
+
+[2023-01-23 13:55:01] Startup - updater built Mar 15 2022 17:15:38
+[2023-01-23 13:55:03] Shutdown
+
+
+[2023-01-23 20:05:06] Startup - updater built Mar 15 2022 17:15:38
+[2023-01-23 20:08:38] Shutdown
