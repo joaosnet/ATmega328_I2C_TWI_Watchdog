@@ -177,16 +177,6 @@ void i2c_write(char x){
 }
 
 /**
- * @brief Função para ler um dado do barramento I2C.
- * @return O dado lido.
- */
-char i2c_read(){
-    TWCR  = (1<<TWEN) | (1<<TWINT); // Habilita a comunicação I2C e limpa a interrupção
-    while (!(TWCR & (1<<TWINT))); // Verifica se a leitura foi concluída com sucesso
-    return TWDR; // Retorna o dado lido
-}
-
-/**
  * @brief Função principal do programa.
  * @return Retorna 0 ao final da execução.
  */
