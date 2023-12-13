@@ -20,8 +20,6 @@ Discarded input sections
                 0x00000000       0x10 main.o
  .text.lcd_lef_sh
                 0x00000000       0x10 main.o
- .text.i2c_read
-                0x00000000       0x14 main.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -411,38 +409,38 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x88
+.debug_aranges  0x00000000       0x80
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x88 main.o
+                0x00000000       0x80 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xbaf
+.debug_info     0x00000000      0xb96
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x5bb main.o
+ .debug_info    0x000005f4      0x5a2 main.o
 
-.debug_abbrev   0x00000000      0x7f6
+.debug_abbrev   0x00000000      0x7de
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x254 main.o
+ .debug_abbrev  0x000005a2      0x23c main.o
 
-.debug_line     0x00000000      0x625
+.debug_line     0x00000000      0x5f8
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000134      0x4f1 main.o
+ .debug_line    0x00000134      0x4c4 main.o
 
-.debug_frame    0x00000000      0x120
+.debug_frame    0x00000000      0x110
  *(.debug_frame)
- .debug_frame   0x00000000      0x120 main.o
+ .debug_frame   0x00000000      0x110 main.o
 
-.debug_str      0x00000000      0x478
+.debug_str      0x00000000      0x46f
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x270 main.o
-                                0x2ae (size before relaxing)
+ .debug_str     0x00000208      0x267 main.o
+                                0x2a5 (size before relaxing)
 
 .debug_loc      0x00000000      0x2ca
  *(.debug_loc)
@@ -466,9 +464,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x78
+.debug_ranges   0x00000000       0x70
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x78 main.o
+ .debug_ranges  0x00000000       0x70 main.o
 
 .debug_macro
  *(.debug_macro)
