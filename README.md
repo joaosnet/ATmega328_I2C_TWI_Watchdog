@@ -8,41 +8,28 @@
 
 <img src="screenshots\projeto_proteus.bmp" alt="Projeto Proteus">
 
-> Contador utilizando displays de sete segmentos controlados por um microcontrolador ATmega328. Este projeto permite a contagem entre os valores de 00 a 29, com botões A e B para incrementar e decrementar a contagem, respectivamente.
-
-Considerando as especificações do projeto, as tarefas no template podem ser adaptadas para refletir o desenvolvimento do projeto. Aqui está uma proposta de ajuste:
+> Controle de um microcontrolador ATmega328 com comunicação I2C e Watchdog Timer. O programa realiza a inicialização do I2C, inicia a comunicação I2C, escreve em um display LCD e configura o Watchdog Timer para reiniciar o microcontrolador em caso de falhas.
 
 ### Ajustes e melhorias
 
 O projeto está em andamento, e as próximas atualizações serão focadas nas seguintes tarefas:
 
-1. [x] **Implementação do Contador:**
-   - Desenvolvimento do código em C para o microcontrolador ATmega328 para realizar a contagem de 00 a 29.
-
-2. [x] **Integração dos Botões A e B:**
-   - Implementação das interrupções PCINT20 e PCINT21 para os botões A e B, respectivamente.
-   - Lógica para incrementar a contagem quando o botão A é pressionado e decrementar quando o botão B é pressionado.
-
-3. [x] **Registradores de Controle dos Displays de Sete Segmentos:**
-   - Configuração e controle dos registradores de deslocamento modelo 74HC595 para controlar os displays de sete segmentos.
-   - Utilização de dois registradores de deslocamento ligados em série, um para cada display.
-
-4. [x] **Código do Controlador Funcionando:**
+1. [x] **Código do Controlador Funcionando:**
    - Ajustes finais no código para garantir que o controlador funcione corretamente conforme os requisitos do projeto.
    - Testes e depuração para verificar o funcionamento adequado.
 
-5. [ ] **Artigo sobre o Projeto:**
+2. [x] **Artigo sobre o Projeto:**
    - Elaboração de um artigo seguindo o modelo de artigo empregado pelo SBrT, com pelo menos quatro páginas.
    - Inclusão de detalhes sobre o circuito, código, teoria envolvida e memória de cálculos realizados.
    - Referências apropriadas para todo o material utilizado, evitando reprodução integral de conteúdos de terceiros.
 
-6. [ ] **Apresentação do Projeto:**
+3. [x] **Apresentação do Projeto:**
    - Preparação de slides para apresentação, incluindo detalhes da teoria, desenvolvimento do projeto e resultados.
    - Demonstração do projeto funcionando, seja em simulação ou montagem física, durante a apresentação.
 
-7. [ ] **Envio do Trabalho:**
+4. [x] **Envio do Trabalho:**
    - Compilação de todos os documentos relacionados ao projeto (trabalho escrito, código-fonte, slides de apresentação) em um arquivo compactado (.zip).
-   - Nome do arquivo: `PeriodoLetivo_NumeroEquipe.zip`.
+   - Nome do arquivo: `2023.4_3.zip`.
 
 ## 💻 Pré-requisitos
 
@@ -50,7 +37,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão mais recente do Microchip Studio
 - Você tem instalado o Proteus 8.7 SP3 ou um microcontrolador ATmega328p
-- Você leu o datasheet do ATmega328, do 74HC595 e dos displays de sete segmentos.
+- Você leu a [o artigo relacionado ao projeto](https://github.com/joaosnet/ATmega328_I2C_TWI_Watchdog/blob/67f15c2138273b703f4898307c57c47d2b9cf023/docs/Explorando_o_ATmega328_com_I2C_e_Watchdog_em_C_Puro.pdf).
 
 ## ☕ Usando Contador Sete Segmentos
 
