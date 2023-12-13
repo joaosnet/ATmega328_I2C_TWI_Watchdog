@@ -9,11 +9,18 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <stdlib.h>
 
 /**
- * @brief Função principal do programa.
- * @return Retorna 0 ao final da execução.
+ * @brief Função de atraso em milissegundos.
+ * @param ms O tempo de atraso em milissegundos.
  */
+void delay(int ms)
+{
+    int i,j;
+    for(i=0;i<=ms;i++)
+        for(j=0;j<=120;j++);
+}
 
 /**
  * @brief Função para alternar o estado do pino Enable da LCD.
@@ -115,17 +122,6 @@ void lcd_init()
 }
 
 /**
- * @brief Função de atraso em milissegundos.
- * @param ms O tempo de atraso em milissegundos.
- */
-void delay(int ms)
-{
-    int i,j;
-    for(i=0;i<=ms;i++)
-        for(j=0;j<=120;j++);
-}
-
-/**
  * @brief Função para escrever uma mensagem no display LCD.
  * @param c A mensagem a ser escrita.
  */
@@ -189,6 +185,11 @@ char i2c_read(){
     while (!(TWCR & (1<<TWINT))); // Verifica se a leitura foi concluída com sucesso
     return TWDR; // Retorna o dado lido
 }
+
+/**
+ * @brief Função principal do programa.
+ * @return Retorna 0 ao final da execução.
+ */
 
 int main(void)
 {
