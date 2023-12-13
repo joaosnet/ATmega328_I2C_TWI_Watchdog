@@ -44,13 +44,14 @@ int main(void)
         lcd_cmd(0x80); // Define o cursor na primeira linha do display LCD
         lcd_msg(buffer); // Escreve a string no display LCD
 
-        _delay_ms(100); // Aguarda 100ms
+        _delay_ms(10); // Aguarda 10ms
 
         if ((PINB & (1<<PORTB0))==1){ // Verifica se o pino PB0 está em nível lógico alto
             contdr++; // Incrementa o contador
-            WDTCSR |= (1<<WDIE); // Habilita a interrupção do watchdog timer
-            _delay_ms(100); // Aguarda 100ms
+            _delay_ms(10); // Aguarda 10ms
         }
+
+        WDTCSR |= (1<<WDIE); // Habilita a interrupção do watchdog timer
     }
 }
 
