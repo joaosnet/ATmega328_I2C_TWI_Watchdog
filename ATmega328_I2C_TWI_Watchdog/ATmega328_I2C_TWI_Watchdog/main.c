@@ -14,46 +14,6 @@
  * @brief Função principal do programa.
  * @return Retorna 0 ao final da execução.
  */
-int main(void)
-{
-    i2c_init(); // Inicializa a comunicação I2C
-    i2c_start(); // Inicia a comunicação I2C
-    i2c_write(0x70); // Escreve no endereço 0x70 do barramento I2C
-    lcd_init(); // Inicializa o display LCD
-
-    cli(); // Desativa todas as interrupções
-    MCUSR &= ~(1<<WDRF); // Reseta o bit de Watchdog Reset
-    // Inicia a sequência de atualização do watchdog timer
-    WDTCSR = (1<<WDCE) | (1<<WDE);
-    // Define o tempo de espera para 2.0s e habilita a interrupção do watchdog timer
-    WDTCSR = (1<<WDIE) | (1<<WDP2) | (1<<WDP1) | (1<<WDP0);
-    sei(); // Reativa todas as interrupções
-
-    DDRB &=~ 0b11111110; // Configura o pino PB0 como entrada
-
-    int contdr = 0; // Variável de contador
-
-    while(1)
-    {
-        PORTB = 0x01; // Define o pino PB0 como saída e nível lógico alto
-        PORTB = (1<<PORTC0); // Define o pino PC0 como saída e nível lógico alto
-
-        char buffer[3];
-        itoa(contdr, buffer, 10); // Converte o contador para string
-
-        lcd_cmd(0x80); // Define o cursor na primeira linha do display LCD
-        lcd_msg(buffer); // Escreve a string no display LCD
-
-        _delay_ms(10); // Aguarda 10ms
-
-        if ((PINB & (1<<PORTB0))==1){ // Verifica se o pino PB0 está em nível lógico alto
-            contdr++; // Incrementa o contador
-            _delay_ms(10); // Aguarda 10ms
-        }
-
-        WDTCSR |= (1<<WDIE); // Habilita a interrupção do watchdog timer
-    }
-}
 
 /**
  * @brief Função para alternar o estado do pino Enable da LCD.
@@ -228,4 +188,45 @@ char i2c_read(){
     TWCR  = (1<<TWEN) | (1<<TWINT); // Habilita a comunicação I2C e limpa a interrupção
     while (!(TWCR & (1<<TWINT))); // Verifica se a leitura foi concluída com sucesso
     return TWDR; // Retorna o dado lido
+}
+
+int main(void)
+{
+	i2c_init(); // Inicializa a comunicação I2C
+	i2c_start(); // Inicia a comunicação I2C
+	i2c_write(0x70); // Escreve no endereço 0x70 do barramento I2C
+	lcd_init(); // Inicializa o display LCD
+
+	cli(); // Desativa todas as interrupções
+	MCUSR &= ~(1<<WDRF); // Reseta o bit de Watchdog Reset
+	// Inicia a sequência de atualização do watchdog timer
+	WDTCSR = (1<<WDCE) | (1<<WDE);
+	// Define o tempo de espera para 2.0s e habilita a interrupção do watchdog timer
+	WDTCSR = (1<<WDIE) | (1<<WDP2) | (1<<WDP1) | (1<<WDP0);
+	sei(); // Reativa todas as interrupções
+
+	DDRB &=~ 0b11111110; // Configura o pino PB0 como entrada
+
+	int contdr = 0; // Variável de contador
+
+	while(1)
+	{
+		PORTB = 0x01; // Define o pino PB0 como saída e nível lógico alto
+		PORTB = (1<<PORTC0); // Define o pino PC0 como saída e nível lógico alto
+
+		char buffer[3];
+		itoa(contdr, buffer, 10); // Converte o contador para string
+
+		lcd_cmd(0x80); // Define o cursor na primeira linha do display LCD
+		lcd_msg(buffer); // Escreve a string no display LCD
+
+		_delay_ms(100); // Aguarda 100ms
+
+		if ((PINB & (1<<PORTB0))==1){ // Verifica se o pino PB0 está em nível lógico alto
+			contdr++; // Incrementa o contador
+			_delay_ms(10); // Aguarda 100ms
+		}
+
+		WDTCSR |= (1<<WDIE); // Habilita a interrupção do watchdog timer
+	}
 }
